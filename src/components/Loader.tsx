@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-function Loader({ setIsLoading }) {
+// 👇 The fix is here: we added ": { setIsLoading: any }"
+function Loader({ setIsLoading }: { setIsLoading: any }) {
   useEffect(() => {
     // This timer waits 2 seconds, then turns off the loader
     const timer = setTimeout(() => {
@@ -16,22 +17,21 @@ function Loader({ setIsLoading }) {
     <div className="loader" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
        {/* This motion.div handles the animation of the image */}
        <motion.div
-         initial={{ opacity: 0, scale: 0.5 }} // Start small and invisible
-         animate={{ opacity: 1, scale: 1 }}   // Animate to full size and visible
+         initial={{ opacity: 0, scale: 0.5 }} 
+         animate={{ opacity: 1, scale: 1 }}   
          transition={{
             duration: 1.0,
             ease: "easeInOut",
-            repeat: 1,       // Pulse once
-            repeatType: "reverse" // Fade back out
+            repeat: 1,       
+            repeatType: "reverse" 
          }}
        >
-         {/* IMPORTANT: Make sure the src matches your file name in the public folder */}
          <Image
-           src="/r-logo.png"
+           src="/icon.png" // Make sure this matches your file name in public!
            alt="Loading Logo"
-           width={150} /* You can change this size */
+           width={150} 
            height={150}
-           priority={true} /* Loads the image instantly */
+           priority={true} 
          />
        </motion.div>
     </div>
