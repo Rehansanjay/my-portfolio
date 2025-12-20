@@ -1,22 +1,29 @@
 :root {
-  --navy-shadow: rgba(2, 12, 27, 0.7);
-  --background-color: #0a192f;
-  --lightest-navy: #233554;
-  --light-navy: #112240;
-  --dark-slate: #495670;
-  --slate: #8892b0;
-  --light-slate: #ccd6f6;
-  --lightest-slate: #a8b2d1;
-  --theme-color: #9d00ff;
+  /* --- 1. THE MATRIX / HACKER PALETTE --- */
+  --navy: #050505;        /* Main Background - Almost Pure Black */
+  --light-navy: #111111;  /* Navbar & Cards - Dark Gray */
+  --lightest-navy: #222222; /* Hover States */
+  --green: #00ff41;       /* Bright Neon Green */
+  --slate: #a8b2d1;       /* Secondary text */
+  --light-slate: #e0e0e0; /* Main text - Bright Gray/White */
+  --lightest-slate: #ffffff; /* Headings - Pure White */
+  --white: #ffffff;
+
+  /* --- 2. SYSTEM MAPPINGS (The Fix) --- */
+  /* This connects the new colors to the variables your body tag uses */
+  --background-color: var(--navy);      /* Fixes the White Background issue */
+  --theme-color: var(--green);          /* Sets the Green accent */
+  --dark-slate: var(--lightest-navy);   /* Fixes Scrollbar colors */
 }
 
+/* Selection Highlight Color */
 ::-moz-selection {
-  color: white;
+  color: black; /* Black text is easier to read on Neon Green */
   background: var(--theme-color);
 }
 
 ::selection {
-  color: white;
+  color: black;
   background: var(--theme-color);
 }
 
@@ -26,7 +33,9 @@ body {
 }
 
 body {
-  background-color: var(--background-color);
+  background-color: var(--background-color); /* Now this will be Black */
+  color: var(--slate);                       /* Now text will be visible Gray/White */
+  font-family: monospace;                    /* fits the Hacker theme */
   counter-reset: title;
 }
 
@@ -46,18 +55,22 @@ main {
   box-sizing: border-box;
 }
 
+/* Scrollbar Styles */
 html {
   scrollbar-width: thin;
-  scrollbar-color: var(--dark-slate) var(--background-color);
+  scrollbar-color: var(--theme-color) var(--background-color);
 }
+
 ::-webkit-scrollbar {
   width: 12px;
 }
+
 ::-webkit-scrollbar-track {
   background: var(--background-color);
 }
+
 ::-webkit-scrollbar-thumb {
-  background-color: var(--dark-slate);
+  background-color: var(--theme-color); /* Makes scrollbar Green */
   border: 3px solid var(--background-color);
   border-radius: 10px;
 }

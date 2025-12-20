@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import React from "react";
 import { motion } from "framer-motion";
+
 function Contact() {
   return (
     <motion.div
@@ -18,12 +19,13 @@ function Contact() {
       <h2 className="contact-title">What&apos;s Next?</h2>
       <h2 className="contact-sub-title">Get In Touch</h2>
       <p className="contact-text">
-        Although I’m not currently looking for any new opportunities, my inbox
-        is always open. Whether you have a question or just want to say hi, I’ll
+        Although I&apos;m not currently looking for any new opportunities, my inbox
+        is always open. Whether you have a question or just want to say hi, I&apos;ll
         try my best to get back to you!
       </p>
       <div className="contact-cta">
-        <Button link="mailto:kishansheth21@gmail.com" text="Say Hello" />
+        {/* 👇 THIS IS THE BUTTON THAT WAS BROKEN */}
+        <Button text="Say Hello" link="mailto:rehan.sanjay@gmail.com" />
       </div>
     </motion.div>
   );

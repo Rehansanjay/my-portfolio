@@ -5,6 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { CgClose } from "react-icons/cg";
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+
 function Navbar() {
   const [navbarVisible, setNavbarVisible] = useState(false);
   const [responsiveNavVisible, setResponsiveNavVisible] = useState(false);
@@ -12,10 +13,7 @@ function Navbar() {
     { name: "About", link: "/#about" },
     { name: "Experience", link: "/#experience" },
     { name: "Work", link: "/#work" },
-    {
-      name: "Contact",
-      link: "/#contact",
-    },
+    { name: "Contact", link: "/#contact" },
   ];
 
   useEffect(() => {
@@ -62,7 +60,8 @@ function Navbar() {
             ease: "easeInOut",
           }}
         >
-          <Link href="kishansheth.com">
+          {/* FIXED: Changed from "Rehansanjay.com" to "/" (Home) */}
+          <Link href="/">
             <Logo />
           </Link>
         </motion.div>
@@ -123,7 +122,8 @@ function Navbar() {
               delay: 0.6,
             }}
           >
-            <Button text="Resume" link="http://localhost:3000/resume.pdf" />
+            {/* FIXED: Removed localhost:3000, now uses relative path */}
+            <Button text="Resume" link="/resume.pdf" />
           </motion.div>
         </div>
       </div>

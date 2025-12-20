@@ -7,63 +7,48 @@ import { motion } from "framer-motion";
 function Projects() {
   const projectsData = [
     {
-      image: "/project1.png",
-      projectName: "Pokedex",
-      projectLink: "https://netlify.com",
+      image: "/ai.png",
+      projectName: "AI Image Automation",
+      // 👇 OPTIONAL: Use your real Vercel link here if you want the title to be clickable too
+      projectLink: "https://rehan-ai-portfolio.vercel.app", 
       projectDescription:
-        "This is a web application that uses the PokeAPI to display information about different Pokemon, including their evolution levels and details. You can compare multiple Pokemon using a queue, and add them to your personal list using Firebase's Firestore database.",
-      projectTech: [
-        "React",
-        "Redux Toolkit",
-        "SCSS",
-        "Firebase",
-        "Typescript",
-        "PokeApi",
-      ],
-      projectExternalLinks: {
-        github: "",
-        externalLink: "",
-      },
-    },
-    {
-      image: "/project2.png",
-      projectName: "Realtime Chat App",
-      projectLink: "https://netlify.com",
-      projectDescription:
-        "This is a chat app made with React and Node.js that sends real-time messages and is highly scalable. It uses advanced JavaScript concepts like debouncing and is optimized for React. It has 300+ stars on GitHub and over 180k views on YouTube.",
-      projectTech: [
-        "React",
-        "Sockets",
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "Styled Components",
-      ],
-      projectExternalLinks: {
-        github: "",
-        externalLink: "",
-      },
-    },
-    {
-      image: "/project3.png",
-      projectName: "Netflix App",
-      projectLink: "https://netlify.com",
-      projectDescription:
-        "I made a Netflix copy with TMBD Api. It has infinite scrolling and lets you watch movies by genre. You can also add movies to your favorites list.",
+        "An AI-powered application for generating and processing images and videos. Leverages advanced generative models to create unique visual content automatically.",
       projectTech: [
         "React",
         "Node.js",
-        "Firebase",
-        "MongoDB",
-        "Express",
-        "Redux Toolkit",
+        "OpenAI API",
+        "Vercel",
+        "Tailwind CSS",
       ],
       projectExternalLinks: {
-        github: "",
+        // 👇 UPDATE THIS: Replace 'YOUR_GITHUB_USERNAME' with your actual ID
+        github: "https://github.com/Rehansanjay/aether-labs",
+        // 👇 UPDATE THIS: Paste your real Vercel link here
+        externalLink: "https://rehan-ai-portfolio.vercel.app",
+      },
+    },
+    {
+      image: "/coral.png",
+      projectName: "Coral Reef Inspector",
+      projectLink: "#",
+      projectDescription:
+        "A machine learning application built to classify coral health from images using a Convolutional Neural Network (CNN). This project helps in monitoring marine ecosystems by automating the detection of damaged reefs.",
+      projectTech: [
+        "Python",
+        "TensorFlow",
+        "React",
+        "Deep Learning",
+        "CNN",
+      ],
+      projectExternalLinks: {
+        // 👇 UPDATE THIS: Replace 'YOUR_GITHUB_USERNAME' with your actual ID
+        github: "https://github.com/Rehansanjay/coral-reef-inspector",
+        // 👇 LEAVE EMPTY: This keeps the external link button hidden
         externalLink: "",
       },
     },
   ];
+
   return (
     <div className="projects" id="work">
       <motion.div
@@ -102,12 +87,27 @@ function Projects() {
                   hidden: { opacity: 0, y: 0 },
                 }}
               >
-                <div className="project-image">
-                  <div className="project-image-overlay"></div>
-                  <div className="project-image-container">
-                    <Image src={image} fill alt={projectName} quality={100} />
+                {/* --- IMAGE SECTION START --- */}
+                <a
+                  href={projectExternalLinks.externalLink || "#"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="project-image-link"
+                >
+                  <div className="project-image">
+                    <div className="project-image-overlay"></div>
+                    <div className="project-image-container">
+                      <Image
+                        src={image}
+                        fill
+                        alt={projectName}
+                        quality={100}
+                      />
+                    </div>
                   </div>
-                </div>
+                </a>
+                {/* --- IMAGE SECTION END --- */}
+
                 <div className="project-info">
                   <p className="project-info-overline">Featured Project</p>
                   <h3 className="project-info-title">{projectName}</h3>
@@ -130,14 +130,19 @@ function Projects() {
                         <FiGithub />
                       </Link>
                     </li>
-                    <li className="project-info-links-item">
-                      <Link
-                        href={projectExternalLinks.externalLink}
-                        className="project-info-links-item-link"
-                      >
-                        <FiExternalLink />
-                      </Link>
-                    </li>
+                    {/* Only show the external link button if a link actually exists */}
+                    {projectExternalLinks.externalLink && (
+                      <li className="project-info-links-item">
+                        <a
+                          href={projectExternalLinks.externalLink}
+                          className="project-info-links-item-link"
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <FiExternalLink />
+                        </a>
+                      </li>
+                    )}
                   </ul>
                 </div>
               </motion.div>
