@@ -31,7 +31,6 @@ function CodeWindow() {
           <span style={{ color: "#a8b2d1" }}>=</span>{" "}
           <span style={{ color: "#e6f1ff" }}>{"{"}</span>
         </p>
-        {/* We use specific HTML codes here to prevent errors */}
         <p style={{ paddingLeft: "20px" }}>
           name: <span style={{ color: "#f1fa8c" }}>&quot;Rehan Sanjay&quot;</span>,
         </p>
