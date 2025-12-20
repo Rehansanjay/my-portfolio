@@ -2,10 +2,13 @@ import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-// 👇 The fix is here: we added ": { setIsLoading: any }"
-function Loader({ setIsLoading }: { setIsLoading: any }) {
+// 👇 This tells TypeScript exactly what "setIsLoading" is
+interface LoaderProps {
+  setIsLoading: any;
+}
+
+function Loader({ setIsLoading }: LoaderProps) {
   useEffect(() => {
-    // This timer waits 2 seconds, then turns off the loader
     const timer = setTimeout(() => {
       setIsLoading(false);
     }, 2000);
@@ -15,7 +18,6 @@ function Loader({ setIsLoading }: { setIsLoading: any }) {
 
   return (
     <div className="loader" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-       {/* This motion.div handles the animation of the image */}
        <motion.div
          initial={{ opacity: 0, scale: 0.5 }} 
          animate={{ opacity: 1, scale: 1 }}   
@@ -27,7 +29,7 @@ function Loader({ setIsLoading }: { setIsLoading: any }) {
          }}
        >
          <Image
-           src="/icon.png" // Make sure this matches your file name in public!
+           src="/icon.png" 
            alt="Loading Logo"
            width={150} 
            height={150}
