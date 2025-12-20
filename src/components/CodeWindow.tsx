@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React from "react";
 
 function CodeWindow() {
@@ -5,12 +6,12 @@ function CodeWindow() {
     <div
       className="code-window"
       style={{
-        background: "#0a0a0a", // Matrix Black
+        background: "#0a0a0a",
         borderRadius: "4px",
         fontFamily: "'Fira Code', 'Courier New', monospace",
         padding: "20px",
         boxShadow: "0 0 20px rgba(0, 255, 65, 0.1)",
-        border: "1px solid #00ff41", // Matrix Green
+        border: "1px solid #00ff41",
         maxWidth: "400px",
         width: "100%",
         margin: "0 auto",
@@ -30,6 +31,7 @@ function CodeWindow() {
           <span style={{ color: "#a8b2d1" }}>=</span>{" "}
           <span style={{ color: "#e6f1ff" }}>{"{"}</span>
         </p>
+        {/* We use specific HTML codes here to prevent errors */}
         <p style={{ paddingLeft: "20px" }}>
           name: <span style={{ color: "#f1fa8c" }}>&quot;Rehan Sanjay&quot;</span>,
         </p>
