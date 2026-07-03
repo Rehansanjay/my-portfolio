@@ -1,12 +1,17 @@
 /* --- Terminal Wrapper --- */
 .terminal-wrapper {
+  position: relative;
+  z-index: 10; /* Ensures it sits above particle canvas and is clickable on mobile */
+  width: 100%;
+  margin-top: var(--space-2xl);
+
   @media screen and (min-width: 900px) {
     position: absolute;
     right: 0;
     top: 50%;
     transform: translateY(-65%); /* Adjusted slightly higher to match name */
-    width: 100%;
     max-width: 500px;
+    margin-top: 0;
   }
 }
 
