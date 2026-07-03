@@ -1,14 +1,8 @@
 main {
-  margin: 0 15rem;
-  @media screen and (max-width: 1020px) {
-    margin: 0 8rem;
-  }
-  @media screen and (max-width: 768px) {
-    margin: 0 3rem;
-  }
-  @media screen and (max-width: 480px) {
-    margin: 0 1.5rem;
-  }
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 clamp(1.5rem, 4vw, 6rem);
+  width: 100%;
 }
 
 body {

@@ -1,13 +1,30 @@
 .loader {
+  position: fixed;
+  inset: 0;
+  background-color: var(--navy);
   color: var(--theme-color);
-  fill: none;
+  z-index: var(--z-modal);
   display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  height: 90vh;
-  svg {
-    height: 10rem;
-    width: 10rem;
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-lg);
+  }
+
+  &__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__text {
+    font-family: var(--font-mono);
+    font-size: var(--tsm);
+    color: var(--slate);
+    letter-spacing: 0.1em;
   }
 }

@@ -1,14 +1,33 @@
-import React from "react";
+import React, { useRef, useCallback } from "react";
 
 function Button({ text, link }: { text: string; link: string }) {
-  // We use a standard HTML <a> tag because <Link> breaks for emails and PDFs
+  const btnRef = useRef<HTMLAnchorElement>(null);
+
+  const handleClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>) => {
+    const btn = btnRef.current;
+    if (!btn) return;
+
+    const rect = btn.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+
+    const ripple = document.createElement("span");
+    ripple.className = "btn__ripple";
+    ripple.style.left = `${x}px`;
+    ripple.style.top = `${y}px`;
+    btn.appendChild(ripple);
+
+    setTimeout(() => ripple.remove(), 600);
+  }, []);
+
   return (
-    <a 
-      className="btn" 
+    <a
+      ref={btnRef}
+      className="btn"
       href={link}
-      // If it's a PDF or External site, open in new tab. If it's email, stay here.
       target={link.startsWith("http") || link.endsWith(".pdf") ? "_blank" : "_self"}
       rel="noopener noreferrer"
+      onClick={handleClick}
     >
       {text}
     </a>

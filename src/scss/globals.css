@@ -1,46 +1,108 @@
 :root {
-  /* --- 1. THE MATRIX / HACKER PALETTE --- */
-  --navy: #050505;        /* Main Background - Almost Pure Black */
-  --light-navy: #111111;  /* Navbar & Cards - Dark Gray */
-  --lightest-navy: #222222; /* Hover States */
-  --green: #00ff41;       /* Bright Neon Green */
-  --slate: #a8b2d1;       /* Secondary text */
-  --light-slate: #e0e0e0; /* Main text - Bright Gray/White */
-  --lightest-slate: #ffffff; /* Headings - Pure White */
+  /* --- Core Palette (Preserved) --- */
+  --navy: #050505;
+  --light-navy: #0d0d0d;
+  --lightest-navy: #1a1a1a;
+  --green: #00ff41;
+  --green-rgb: 0, 255, 65;
+  --slate: #8892b0;
+  --light-slate: #c5c9d6;
+  --lightest-slate: #e6e8ef;
   --white: #ffffff;
 
-  /* --- 2. SYSTEM MAPPINGS (The Fix) --- */
-  /* This connects the new colors to the variables your body tag uses */
-  --background-color: var(--navy);      /* Fixes the White Background issue */
-  --theme-color: var(--green);          /* Sets the Green accent */
-  --dark-slate: var(--lightest-navy);   /* Fixes Scrollbar colors */
+  /* --- System Mappings --- */
+  --background-color: var(--navy);
+  --theme-color: var(--green);
+  --dark-slate: var(--lightest-navy);
+
+  /* --- Glassmorphism --- */
+  --glass-bg: rgba(13, 13, 13, 0.6);
+  --glass-border: rgba(0, 255, 65, 0.08);
+  --glass-blur: 20px;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+  --shadow-glow: 0 0 20px rgba(var(--green-rgb), 0.15);
+  --shadow-glow-sm: 0 0 10px rgba(var(--green-rgb), 0.1);
+
+  /* --- Spacing Scale --- */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+  --space-5xl: 8rem;
+
+  /* --- Animation --- */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* --- Z-Index Scale --- */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 50;
+  --z-overlay: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+
+  /* --- Border Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-full: 9999px;
+
+
 }
 
-/* Selection Highlight Color */
-::-moz-selection {
-  color: black; /* Black text is easier to read on Neon Green */
-  background: var(--theme-color);
-}
-
+/* --- Selection --- */
 ::selection {
-  color: black;
+  color: var(--navy);
+  background: var(--theme-color);
+}
+::-moz-selection {
+  color: var(--navy);
   background: var(--theme-color);
 }
 
-html,
-body {
-  scroll-behavior: smooth !important;
+/* --- Base Reset --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: var(--theme-color) var(--background-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: var(--background-color); /* Now this will be Black */
-  color: var(--slate);                       /* Now text will be visible Gray/White */
-  font-family: monospace;                    /* fits the Hacker theme */
+  background-color: var(--background-color);
+  color: var(--slate);
+  font-family: var(--font-sans); /* This will now correctly fall back to Inter */
   counter-reset: title;
+  max-width: 100vw;
+  overflow-x: hidden;
+  line-height: 1.6;
 }
 
 main {
-  transition: 0.3s ease-in-out;
+  transition: filter var(--duration-normal) var(--ease-out-quart);
 }
 
 .blur {
@@ -49,28 +111,71 @@ main {
   user-select: none;
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Scrollbar Styles */
-html {
-  scrollbar-width: thin;
-  scrollbar-color: var(--theme-color) var(--background-color);
-}
-
+/* --- Scrollbar --- */
 ::-webkit-scrollbar {
-  width: 12px;
+  width: 8px;
 }
-
 ::-webkit-scrollbar-track {
   background: var(--background-color);
 }
-
 ::-webkit-scrollbar-thumb {
-  background-color: var(--theme-color); /* Makes scrollbar Green */
-  border: 3px solid var(--background-color);
-  border-radius: 10px;
+  background-color: rgba(var(--green-rgb), 0.3);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--background-color);
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(var(--green-rgb), 0.5);
+}
+
+/* --- Cursor Glow (applied via JS) --- */
+.cursor-glow {
+  position: fixed;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(var(--green-rgb), 0.04) 0%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  transition: opacity var(--duration-slow) ease;
+}
+
+/* --- Focus Visible --- */
+:focus-visible {
+  outline: 2px solid var(--theme-color);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* --- Reduced Motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* --- Utility: Screen Reader Only --- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
 }

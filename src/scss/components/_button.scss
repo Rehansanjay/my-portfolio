@@ -1,15 +1,38 @@
 .btn {
+  position: relative;
+  overflow: hidden;
   color: var(--theme-color);
-  padding: 0.75em 1em;
+  padding: 0.6rem 1.25rem;
   text-decoration: none;
-  border: 1px solid var(--theme-color);
-  border-radius: 4px;
+  border: 1px solid rgba(var(--green-rgb), 0.3);
+  border-radius: var(--radius-md);
   background-color: transparent;
-  font-family: "SF Mono", "Fira Code", "Fira Mono", "Roboto Mono", monospace;
+  font-family: var(--font-mono);
   font-size: var(--tsm);
-  outline: none;
-  &:hover,
-  &:focus {
-    background-color: var(--lightest-navy);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-out-quart);
+
+  &:hover {
+    background-color: rgba(var(--green-rgb), 0.08);
+    border-color: rgba(var(--green-rgb), 0.5);
+    box-shadow: var(--shadow-glow-sm);
+  }
+
+  &__ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(var(--green-rgb), 0.2);
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%) scale(0);
+    animation: ripple-effect 600ms ease-out forwards;
+    pointer-events: none;
+  }
+}
+
+@keyframes ripple-effect {
+  to {
+    transform: translate(-50%, -50%) scale(25);
+    opacity: 0;
   }
 }

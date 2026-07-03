@@ -1,119 +1,170 @@
-import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 function Experience() {
-  const [selected, setSelected] = useState(0);
-
-  useEffect(() => {
-    const transformSelected = () => {
-      const underline = document.querySelector(".underline");
-      if (underline) {
-        underline.style.top = `${selected * 2.5}rem`;
-      }
-    };
-    transformSelected();
-  }, [selected]);
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
 
   const experiences = [
     {
-      name: "Makos Infotech", // 👈 REPLACE with Company Name (e.g., "Google")
-      role: "FrontEnd Development Intern", // 👈 REPLACE with your Role
-      url: "https://www.example.com", // 👈 REPLACE with company website
-      start: "May 2024",
-      end: "June 2024",
-      shortDescription: [
-        "Built responsive web pages using React and Next.js.",
-        "Fixed bugs and improved website performance by 20%.",
-        "Collaborated with senior developers to learn best coding practices.",
-      ],
-    },
-    {
-      name: "Codtech IT Solutions", // 👈 REPLACE with Company Name
-      role: "BackEnd Development Intern",
-      url: "https://www.example.com",
+      name: "Codtech IT Solutions",
+      role: "Backend Development Intern",
+      url: "https://www.codtech.in",
       start: "March 2025",
       end: "May 2025",
-      shortDescription: [
+      achievements: [
         "Developed user interfaces for the main company dashboard.",
         "Worked with APIs to fetch and display real-time data.",
         "Participated in daily stand-up meetings and code reviews.",
       ],
+      tech: ["Node.js", "Express", "MongoDB", "WebSockets", "REST APIs"],
     },
     {
-      name: "Coral Reef Project", // 👈 SUGGESTION: Your College Project
-      role: "Lead Developer",
+      name: "Makos Infotech",
+      role: "Frontend Development Intern",
+      url: "https://www.makosinfotech.com",
+      start: "May 2024",
+      end: "June 2024",
+      achievements: [
+        "Built responsive web pages using React and Next.js.",
+        "Fixed bugs and improved website performance by 20%.",
+        "Collaborated with senior developers to learn best coding practices.",
+      ],
+      tech: ["React", "Next.js", "CSS Modules", "Figma"],
+    },
+    {
+      name: "",
+      role: "Lead Developer - Coral Reef Inspector",
       url: "#",
       start: "May 2023",
-      end: "August 2023",
-      shortDescription: [
+      end: "May 2026",
+      achievements: [
         "Built a CNN model to classify coral reef health from images.",
         "Developed a full-stack web app to showcase the AI model predictions.",
         "Handled the backend integration using Python and Node.js.",
       ],
+      tech: ["Python", "TensorFlow", "CNN", "React", "Node.js", "Flask"],
     },
   ];
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.4, ease: [0.16, 1, 0.3, 1] },
+    },
+  };
+
   return (
-    <motion.div
+    <motion.section
       className="experience"
       id="experience"
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      variants={{
-        visible: { opacity: 1, y: -50 },
-        hidden: { opacity: 0, y: 0 },
-      }}
+      viewport={{ once: true, margin: "-100px" }}
+      variants={containerVariants}
+      aria-label="Work experience"
     >
-      <div className="title">
-        <h2>Where I&apos;ve Worked</h2>
+      <motion.div className="section-header" variants={itemVariants}>
+        <h2 className="section-header__title">
+          <span className="section-header__number">02.</span>
+          Experience
+        </h2>
+        <div className="section-header__line" />
+      </motion.div>
+
+      <div className="experience__timeline">
+        {experiences.map((exp, index) => (
+          <motion.div
+            key={exp.name}
+            className={`experience__card ${expandedIndex === index ? "experience__card--expanded" : ""}`}
+            variants={itemVariants}
+            onClick={() => setExpandedIndex(expandedIndex === index ? null : index)}
+            role="button"
+            tabIndex={0}
+            aria-expanded={expandedIndex === index}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                setExpandedIndex(expandedIndex === index ? null : index);
+              }
+            }}
+          >
+            {/* Timeline node */}
+            <div className="experience__node">
+              <div className={`experience__dot ${expandedIndex === index ? "experience__dot--active" : ""}`} />
+              {index < experiences.length - 1 && <div className="experience__line" />}
+            </div>
+
+            {/* Card content */}
+            <div className="experience__content">
+              <div className="experience__header">
+                <div>
+                  <h3 className="experience__role">
+                    {exp.role}
+                    {exp.name && (
+                      <span className="experience__company">
+                        {" @ "}
+                        <a
+                        href={exp.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="experience__company-link"
+                        onClick={(e) => e.stopPropagation()}
+                      >
+                        {exp.name}
+                      </a>
+                      </span>
+                    )}
+                  </h3>
+                  <p className="experience__date">{exp.start} — {exp.end}</p>
+                </div>
+                <motion.span
+                  className="experience__chevron"
+                  animate={{ rotate: expandedIndex === index ? 180 : 0 }}
+                  transition={{ duration: 0.2 }}
+                >
+                  ▾
+                </motion.span>
+              </div>
+
+              <AnimatePresence>
+                {expandedIndex === index && (
+                  <motion.div
+                    className="experience__details"
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
+                  >
+                    <ul className="experience__achievements">
+                      {exp.achievements.map((achievement, i) => (
+                        <li key={i} className="experience__achievement">
+                          {achievement}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="experience__tech">
+                      {exp.tech.map((t) => (
+                        <span key={t} className="experience__tech-badge">{t}</span>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          </motion.div>
+        ))}
       </div>
-      <div className="container">
-        <ul className="exp-slider">
-          <div className="underline"></div>
-          {experiences.map((experience, index) => {
-            return (
-              <li
-                className={`exp-slider-item ${
-                  index === selected && "exp-slider-item-selected"
-                }`}
-                onClick={() => setSelected(index)}
-                key={experience.name}
-              >
-                <span>{experience.name}</span>
-              </li>
-            );
-          })}
-        </ul>
-        <div className="exp-details">
-          <div className="exp-details-position">
-            <h3>
-              <span>{experiences[selected].role}</span>
-              <span className="exp-details-position-company">
-                &nbsp;@&nbsp;
-                <Link href={experiences[selected].url} className="link">
-                  {experiences[selected].name}
-                </Link>
-              </span>
-            </h3>
-            <p className="exp-details-range">
-              {experiences[selected].start} - {experiences[selected].end}
-            </p>
-            <ul className="exp-details-list">
-              {experiences[selected].shortDescription.map(
-                (description, index) => (
-                  <li key={index} className="exp-details-list-item">
-                    {description}
-                  </li>
-                )
-              )}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </motion.div>
+    </motion.section>
   );
 }
 

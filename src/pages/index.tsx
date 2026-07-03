@@ -17,21 +17,24 @@ function Index() {
 
   const handleLoaderLoaded = () => {
     setIsLoading(false);
-    setTimeout(() => setShowContent(true), 450);
+    setTimeout(() => setShowContent(true), 400);
   };
 
   return (
     <div className="app">
       <Head>
-        <title>Rehan Sanjay</title>
-        <link rel="shortcut icon" href="/favicon.ico" />
+        <title>Rehan Sanjay — Full Stack & AI Engineer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="Rehan Sanjay — Full Stack & AI Engineer building production-grade AI products and scalable web applications. React, Next.js, Node.js, Python, TensorFlow." />
+        <link rel="shortcut icon" href="/icon.png" />
+        <link rel="canonical" href="https://rehansanjay.com" />
       </Head>
       {showContent && (
         <>
           <Navbar />
           <SocialIcons />
           <Email />
-          <main>
+          <main id="main-content">
             <Hero />
             <About />
             <Experience />

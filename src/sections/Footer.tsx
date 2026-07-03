@@ -1,48 +1,34 @@
+import React from "react";
 import Link from "next/link";
-import React, { useEffect, useState } from "react";
-import { FaRegStar } from "react-icons/fa";
-import { FiGitBranch } from "react-icons/fi";
 
 function Footer() {
-  const [githubInfo, setGitHubInfo] = useState({
-    stars: null,
-    forks: null,
-  });
-
-  useEffect(() => {
-    fetch("https://api.github.com/repos/Rehansanjay/chat-app-react-nodejs")
-      .then((response) => response.json())
-      .then((json) => {
-        const { stargazers_count, forks_count } = json;
-        setGitHubInfo({
-          stars: stargazers_count,
-          forks: forks_count,
-        });
-      })
-      .catch((e) => console.error(e));
-  }, []);
+  const handleScrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   return (
-    <footer>
-      <Link
-        href="https://github.com/Rehan Sanjay/chat-app-react-nodejs"
-        target="_blank"
-        className="footer-link"
-      >
-        <span className="footer-info">Designed and Built by Rehan Sanjay.</span>
-        {githubInfo && (
-          <div className="footer-git">
-            <div className="footer-git-item">
-              <FaRegStar className="footer-git-item-icon" />
-              <span className="footer-git-item-text">{githubInfo.stars}</span>
-            </div>
-            <div className="footer-git-item">
-              <FiGitBranch className="footer-git-item-icon" />
-              <span className="footer-git-item-text">{githubInfo.forks}</span>
-            </div>
-          </div>
-        )}
-      </Link>
+    <footer className="footer">
+      <div className="footer__inner">
+        <div className="footer__info">
+          <p className="footer__built">
+            Designed &amp; Built by{" "}
+            <Link href="https://github.com/Rehansanjay" target="_blank" className="footer__link">
+              Rehan Sanjay
+            </Link>
+          </p>
+        </div>
+
+        <button
+          className="footer__back-to-top"
+          onClick={handleScrollToTop}
+          aria-label="Back to top"
+        >
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M8 12V4M4 7l4-4 4 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+          </svg>
+        </button>
+      </div>
     </footer>
   );
 }

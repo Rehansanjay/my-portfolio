@@ -1,60 +1,63 @@
 /* eslint-disable react/no-unescaped-entities */
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+const codeText = `const rehan = {
+  role: "Full Stack & AI Engineer",
+  stack: ["React", "Next.js", "Node.js",
+         "Python", "TensorFlow"],
+  focus: "AI-powered products",
+  shipping: true,
+  available: () => "Let's build together"
+};`;
 
 function CodeWindow() {
-  return (
-    <div
-      className="code-window"
-      style={{
-        background: "#0a0a0a",
-        borderRadius: "4px",
-        fontFamily: "'Fira Code', 'Courier New', monospace",
-        padding: "20px",
-        boxShadow: "0 0 20px rgba(0, 255, 65, 0.1)",
-        border: "1px solid #00ff41",
-        maxWidth: "400px",
-        width: "100%",
-        margin: "0 auto",
-        color: "#00ff41",
-      }}
-    >
-      <div style={{ marginBottom: "10px", opacity: 0.7 }}>
-        <span style={{ color: "#ff5f5f" }}>●</span>{" "}
-        <span style={{ color: "#fdbc4b" }}>●</span>{" "}
-        <span style={{ color: "#00cd4e" }}>●</span>
-      </div>
+  const [displayed, setDisplayed] = useState("");
+  const [cursorVisible, setCursorVisible] = useState(true);
 
-      <div style={{ fontSize: "14px", lineHeight: "1.5" }}>
-        <p>
-          <span style={{ color: "#a8b2d1" }}>const</span>{" "}
-          <span style={{ color: "#fff" }}>developer</span>{" "}
-          <span style={{ color: "#a8b2d1" }}>=</span>{" "}
-          <span style={{ color: "#e6f1ff" }}>{"{"}</span>
-        </p>
-        <p style={{ paddingLeft: "20px" }}>
-          name: <span style={{ color: "#f1fa8c" }}>&quot;Rehan Sanjay&quot;</span>,
-        </p>
-        <p style={{ paddingLeft: "20px" }}>
-          skills: <span style={{ color: "#f1fa8c" }}>[&quot;React&quot;, &quot;NextJS&quot;]</span>,
-        </p>
-        <p style={{ paddingLeft: "20px" }}>
-          hardWorker: <span style={{ color: "#ff79c6" }}>true</span>,
-        </p>
-        <p style={{ paddingLeft: "20px" }}>
-          problemSolver: <span style={{ color: "#ff79c6" }}>true</span>,
-        </p>
-        <p style={{ paddingLeft: "20px" }}>
-          hireable: <span style={{ color: "#ff79c6" }}>function()</span> <span style={{ color: "#e6f1ff" }}>{"{"}</span>
-        </p>
-        <p style={{ paddingLeft: "40px" }}>
-          <span style={{ color: "#ff79c6" }}>return</span> <span style={{ color: "#f1fa8c" }}>&quot;100%&quot;</span>;
-        </p>
-        <p style={{ paddingLeft: "20px" }}>
-          <span style={{ color: "#e6f1ff" }}>{"}"}</span>
-        </p>
-        <p>
-          <span style={{ color: "#e6f1ff" }}>{"}"}</span>;
-        </p>
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      if (i < codeText.length) {
+        setDisplayed(codeText.slice(0, i + 1));
+        i++;
+      } else {
+        clearInterval(interval);
+      }
+    }, 25);
+    return () => clearInterval(interval);
+  }, []);
+
+  // Blinking cursor
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCursorVisible((v) => !v);
+    }, 530);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="code-window" role="img" aria-label="Developer profile represented as code">
+      <div className="code-window__header">
+        <div className="code-window__dots">
+          <span className="code-window__dot code-window__dot--red" />
+          <span className="code-window__dot code-window__dot--yellow" />
+          <span className="code-window__dot code-window__dot--green" />
+        </div>
+        <span className="code-window__filename">rehan.config.ts</span>
+        <div className="code-window__dots" style={{ visibility: "hidden" }}>
+          <span /><span /><span />
+        </div>
+      </div>
+      <div className="code-window__body">
+        <pre className="code-window__code">
+          <code>{displayed}</code>
+          <span
+            className="code-window__cursor"
+            style={{ opacity: cursorVisible ? 1 : 0 }}
+          >
+            |
+          </span>
+        </pre>
       </div>
     </div>
   );
