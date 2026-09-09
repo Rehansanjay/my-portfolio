@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from "react";
 
 const codeText = `const rehan = {
-  role: "Full Stack & AI Engineer",
-  stack: ["React", "Next.js", "Node.js",
-         "Python", "TensorFlow"],
+  role: "Voice AI & Backend Engineer",
+  stack: ["Python", "asyncio", "LiveKit",
+         "Twilio", "Deepgram", "TypeScript"],
   focus: "AI-powered products",
   shipping: true,
   available: () => "Let's build together"

@@ -23,9 +23,9 @@ function Index() {
   return (
     <div className="app">
       <Head>
-        <title>Rehan Sanjay — Full Stack & AI Engineer</title>
+        <title>Rehan Sanjay — Voice AI & Backend Engineer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Rehan Sanjay — Full Stack & AI Engineer building production-grade AI products and scalable web applications. React, Next.js, Node.js, Python, TensorFlow." />
+        <meta name="description" content="Rehan Sanjay — Voice AI and backend engineer. Ten fixes merged into LiveKit Agents, Pipecat and jambonz, including one in LiveKit's core connection pool. Python, asyncio, Twilio, Deepgram, WebRTC, TypeScript." />
         <link rel="shortcut icon" href="/icon.png" />
         <link rel="canonical" href="https://rehansanjay.com" />
       </Head>

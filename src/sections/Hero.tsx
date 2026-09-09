@@ -39,7 +39,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.7 }}
         >
-          I craft things for the web.
+          I build voice agents, and fix the frameworks they run on.
         </motion.h2>
 
         <motion.p
@@ -48,7 +48,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.85 }}
         >
-          I&apos;m a software engineer with expertise in creating top-notch digital experiences. My current focus is on developing products that are accessible and centered around user needs. I am also actively looking for work.
+          I&apos;m a software engineer working on real-time voice AI. Ten of my fixes are merged into the open-source frameworks the industry builds voice agents on &mdash; eight into LiveKit Agents, plus Pipecat and jambonz &mdash; including one in LiveKit&apos;s core connection pool that repaired a latent bug across eleven of its plugins. I also built and run Atlas, an outbound voice agent on Twilio and Deepgram. I&apos;m looking for my first full-time engineering role.
         </motion.p>
 
 

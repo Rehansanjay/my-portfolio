@@ -5,19 +5,19 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="icon" href="/icon.png" />
-        <meta name="description" content="Rehan Sanjay — Full Stack & AI Engineer building production-grade AI products and scalable web applications. React, Next.js, Node.js, Python, TensorFlow." />
+        <meta name="description" content="Rehan Sanjay — Voice AI and backend engineer. Ten fixes merged into LiveKit Agents, Pipecat and jambonz, including one in LiveKit's core connection pool. Python, asyncio, Twilio, Deepgram, WebRTC, TypeScript." />
         <meta name="theme-color" content="#050505" />
 
         {/* OpenGraph */}
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Rehan Sanjay — Full Stack & AI Engineer" />
+        <meta property="og:title" content="Rehan Sanjay — Voice AI & Backend Engineer" />
         <meta property="og:description" content="Building AI-powered products and scalable web applications. Full Stack Engineer specializing in React, Next.js, Node.js, Python, and Deep Learning." />
         <meta property="og:url" content="https://rehansanjay.com" />
         <meta property="og:image" content="/icon.png" />
 
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Rehan Sanjay — Full Stack & AI Engineer" />
+        <meta name="twitter:title" content="Rehan Sanjay — Voice AI & Backend Engineer" />
         <meta name="twitter:description" content="Building AI-powered products and scalable web applications." />
         <meta name="twitter:creator" content="@RehanSanjay_" />
 
@@ -34,8 +34,8 @@ export default function Document() {
               "@type": "Person",
               "name": "Rehan Sanjay",
               "url": "https://rehansanjay.com",
-              "jobTitle": "Full Stack & AI Engineer",
-              "knowsAbout": ["React", "Next.js", "Node.js", "Python", "TensorFlow", "AI", "Machine Learning"],
+              "jobTitle": "Voice AI & Backend Engineer",
+              "knowsAbout": ["Python", "asyncio", "Voice AI", "LiveKit", "Pipecat", "Twilio", "Deepgram", "WebRTC", "SIP", "TypeScript", "Next.js"],
               "sameAs": [
                 "https://github.com/Rehansanjay",
                 "https://www.linkedin.com/in/rehansanjayvenkatesan/",

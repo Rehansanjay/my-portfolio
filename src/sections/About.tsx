@@ -4,15 +4,15 @@ import CodeWindow from "@/components/CodeWindow";
 
 function About() {
   const skills = [
-    { name: "React / Next.js", category: "Frontend", level: 90 },
-    { name: "TypeScript", category: "Frontend", level: 85 },
-    { name: "Node.js / Express", category: "Backend", level: 85 },
-    { name: "Python", category: "AI / ML", level: 80 },
-    { name: "TensorFlow / CNN", category: "AI / ML", level: 75 },
-    { name: "MongoDB / Supabase", category: "Backend", level: 80 },
-    { name: "Razorpay", category: "Payments", level: 85 },
-    { name: "Docker / CI/CD", category: "DevOps", level: 75 },
-    { name: "Git / GitHub", category: "DevOps", level: 85 },
+    { name: "Python / asyncio", category: "Voice AI", level: 90 },
+    { name: "LiveKit Agents / Pipecat", category: "Voice AI", level: 85 },
+    { name: "Twilio Voice & Media Streams", category: "Telephony", level: 85 },
+    { name: "Deepgram STT / TTS", category: "Voice AI", level: 85 },
+    { name: "WebRTC / SIP", category: "Telephony", level: 75 },
+    { name: "TypeScript / NestJS", category: "Backend", level: 85 },
+    { name: "React / Next.js", category: "Frontend", level: 85 },
+    { name: "Postgres / Prisma / Redis", category: "Backend", level: 80 },
+    { name: "Docker / CI/CD / pytest", category: "Tooling", level: 80 },
   ];
 
   const containerVariants = {
@@ -53,13 +53,13 @@ function About() {
       <div className="about__grid">
         <div className="about__text">
           <motion.p className="about__paragraph" variants={itemVariants}>
-            This is Rehansanjay, as a full-stack developer, I bring together creativity and technical expertise to build meaningful digital experiences for the web. My journey into full-stack development grew from a deep curiosity about how the front and back ends work together to create seamless applications.
+            I&apos;m Rehan, and I work on real-time voice AI &mdash; the kind that has to hold a phone call together while a model thinks. Most of what I know came from debugging my own production calls: audio arriving out of order, sessions torn down mid-sentence, a connection quietly serving the wrong voice after a settings change.
           </motion.p>
           <motion.p className="about__paragraph" variants={itemVariants}>
-            Fast-forward to today, I specialize in crafting robust, scalable, and user-centric applications with modern technologies across the entire development stack. I have hands-on experience in building responsive interfaces using React and Next.js, designing efficient server-side logic with Node.js and Express.js, and managing databases such as MongoDB and MySQL.
+            That turned into open-source work. Ten of my fixes are merged upstream &mdash; eight into <strong>LiveKit Agents</strong>, plus <strong>Pipecat</strong> and <strong>jambonz</strong> &mdash; and over the last ninety days I&apos;ve been the second most active outside contributor to LiveKit Agents. One of those changes is in its core connection pool: it was closing sockets that were still streaming, and losing handshakes that raced a settings change, which affected eleven plugins at once.
           </motion.p>
           <motion.p className="about__paragraph" variants={itemVariants}>
-            Additionally, I work with tools like Git, GitHub, Docker, and cloud platforms to deliver production-ready applications with smooth deployment workflows.
+            Alongside that I build and run my own products: <strong>Atlas</strong>, an outbound voice agent on Twilio and Deepgram that handles objections and books callbacks, and <strong>InvoiceCheck.in</strong>, a GST invoice verification tool that is live with paying users. I write Python, TypeScript and the tests that prove the fix &mdash; I check every one by reverting it and confirming the test fails.
           </motion.p>
 
           <motion.div className="about__skills" variants={containerVariants}>
