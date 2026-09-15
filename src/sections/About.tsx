@@ -53,13 +53,13 @@ function About() {
       <div className="about__grid">
         <div className="about__text">
           <motion.p className="about__paragraph" variants={itemVariants}>
-            I&apos;m Rehan, and I work on real-time voice AI &mdash; the kind that has to hold a phone call together while a model thinks. Most of what I know came from debugging my own production calls: audio arriving out of order, sessions torn down mid-sentence, a connection quietly serving the wrong voice after a settings change.
+            I&apos;m Rehan, and I work on real-time voice AI &mdash; the kind that has to hold a phone call together while a model thinks. Most of what I know came from debugging real calls on my own voice agent: audio arriving out of order, sessions torn down mid-sentence, a connection quietly serving the wrong voice after a settings change.
           </motion.p>
           <motion.p className="about__paragraph" variants={itemVariants}>
-            That turned into open-source work. Ten of my fixes are merged upstream &mdash; eight into <strong>LiveKit Agents</strong>, plus <strong>Pipecat</strong> and <strong>jambonz</strong> &mdash; and over the last ninety days I&apos;ve been the second most active outside contributor to LiveKit Agents. One of those changes is in its core connection pool: it was closing sockets that were still streaming, and losing handshakes that raced a settings change, which affected eleven plugins at once.
+            That turned into open-source work. Twelve of my fixes are merged upstream &mdash; eight into <strong>LiveKit Agents</strong>, plus <strong>Pipecat</strong>, <strong>jambonz</strong> and <strong>drachtio</strong>. One of the LiveKit changes is in its core connection pool: it was closing sockets that were still streaming, and losing handshakes that raced a settings change, which affected eleven plugins at once.
           </motion.p>
           <motion.p className="about__paragraph" variants={itemVariants}>
-            Alongside that I build and run my own products: <strong>Atlas</strong>, an outbound voice agent on Twilio and Deepgram that handles objections and books callbacks, and <strong>InvoiceCheck.in</strong>, a GST invoice verification tool that is live with paying users. I write Python, TypeScript and the tests that prove the fix &mdash; I check every one by reverting it and confirming the test fails.
+            Alongside that I build and run my own products: <strong>Atlas</strong>, an outbound voice agent on Twilio and Deepgram that handles objections and books callbacks, and <strong>InvoiceCheck.in</strong>, a GST invoice verification tool that is live, with pay-per-check payments. I write Python, TypeScript and the tests that prove the fix &mdash; I check every one by reverting it and confirming the test fails.
           </motion.p>
 
           <motion.div className="about__skills" variants={containerVariants}>
