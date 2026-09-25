@@ -7,12 +7,12 @@ function Experience() {
   const experiences = [
     {
       name: "Open Source",
-      role: "Contributor - LiveKit Agents, Pipecat, jambonz, drachtio",
+      role: "Contributor - LiveKit Agents, Pipecat, jambonz, drachtio, Cosmo",
       url: "https://github.com/Rehansanjay",
       start: "July 2026",
       end: "Present",
       achievements: [
-        "Twelve fixes merged upstream: eight into livekit/agents, two into jambonz, one each into Pipecat and drachtio.",
+        "Seventeen fixes merged upstream: ten into livekit/agents, two each into Pipecat, jambonz and Cosmo, one into drachtio.",
         "Fixed ConnectionPool.invalidate() in LiveKit's core: it closed sockets that were still streaming, and pooled handshakes that raced a settings change. Eleven plugins call it from update_options, so one change repaired all of them. Reviewed line by line by a maintainer before merging.",
         "Found the same stale-handshake bug in three more provider plugins and fixed each; got ruff's RUF006 enabled in their CI so the dangling-task class cannot return.",
         "In the SIP stack: stopped jambonz re-sending call statuses after a transfer, and fixed drachtio-srf stripping the wrong headers from proxied responses.",

@@ -48,7 +48,7 @@ function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: 0.85 }}
         >
-          I&apos;m a software engineer working on real-time voice AI. Twelve of my fixes are merged into the open-source frameworks the industry builds voice agents on &mdash; eight into LiveKit Agents, plus Pipecat, jambonz and drachtio &mdash; including one in LiveKit&apos;s core connection pool that repaired a latent bug across eleven of its plugins. I also built and run Atlas, an outbound voice agent on Twilio and Deepgram. I&apos;m looking for my first full-time engineering role.
+          I&apos;m a software engineer working on real-time voice AI. Seventeen of my fixes are merged into the open-source frameworks the industry builds voice agents on &mdash; ten into LiveKit Agents, plus Pipecat, jambonz, drachtio and Cosmo &mdash; including one in LiveKit&apos;s core connection pool that repaired a latent bug across eleven of its plugins. I also built and run Atlas, an outbound voice agent on Twilio and Deepgram. I&apos;m looking for my first full-time engineering role.
         </motion.p>
 
 

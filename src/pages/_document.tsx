@@ -5,7 +5,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
         <link rel="icon" href="/icon.png" />
-        <meta name="description" content="Rehan Sanjay — Voice AI and backend engineer. Twelve fixes merged into LiveKit Agents, Pipecat, jambonz and drachtio, including one in LiveKit's core connection pool. Python, asyncio, Twilio, Deepgram, WebRTC, TypeScript." />
+        <meta name="description" content="Rehan Sanjay — Voice AI and backend engineer. Seventeen fixes merged into LiveKit Agents, Pipecat, jambonz, drachtio and Cosmo, including one in LiveKit's core connection pool. Python, asyncio, Twilio, Deepgram, WebRTC, TypeScript." />
         <meta name="theme-color" content="#050505" />
 
         {/* OpenGraph */}
