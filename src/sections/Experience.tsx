@@ -12,10 +12,12 @@ function Experience() {
       start: "July 2026",
       end: "Present",
       achievements: [
-        "Twenty-one fixes merged upstream: twelve into livekit/agents, four into Cosmo, two each into Pipecat and jambonz, one into drachtio.",
+        "Twenty-three fixes merged into repositories I don't own: eleven into livekit/agents, four into Cosmo, two each into Pipecat and jambonz, one into drachtio, plus LiteLLM and Drizzle ORM. Twenty more under review.",
         "Fixed ConnectionPool.invalidate() in LiveKit's core: it closed sockets that were still streaming, and pooled handshakes that raced a settings change. Eleven plugins call it from update_options, so one change repaired all of them. Reviewed line by line by a maintainer before merging.",
+        "Wrote the jambonz transport serializer Pipecat was missing - a whole integration, not a fix. Built against a protocol I measured on a live call: fixed 20ms framing, sample rate negotiated in a preamble, and a guard window after killAudio because socket ordering isn't guaranteed. 16 tests, 100% coverage.",
         "Found the same stale-handshake bug in three more provider plugins and fixed each; got ruff's RUF006 enabled in their CI so the dangling-task class cannot return.",
         "In the SIP stack: stopped jambonz re-sending call statuses after a transfer, and fixed drachtio-srf stripping the wrong headers from proxied responses.",
+        "Run a nightly checker that installs all 61 community Pipecat plugins into clean environments and reports which no longer import. 19 are currently broken; I've sent fixes to most.",
         "Every fix verified by mutation - revert the change and confirm the new test fails.",
       ],
       tech: ["Python", "asyncio", "pytest", "WebSockets", "LiveKit", "Pipecat", "SIP"],
