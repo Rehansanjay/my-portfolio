@@ -25,9 +25,9 @@ function Index() {
       <Head>
         <title>Rehan Sanjay — Voice AI & Backend Engineer</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="description" content="Rehan Sanjay — Voice AI and backend engineer. Twenty-three fixes merged into LiveKit Agents, Pipecat, jambonz, drachtio and Cosmo, including one in LiveKit's core connection pool and the jambonz transport serializer Pipecat was missing. Python, asyncio, Twilio, Deepgram, WebRTC, TypeScript." />
+        <meta name="description" content="Rehan Sanjay — voice AI engineer. Thirty-one fixes merged into LiveKit Agents, Pipecat, jambonz, drachtio and Cosmo, including one in LiveKit's core connection pool and the jambonz serializer Pipecat was missing, which jambonz paid me to build. I measure what voice agents actually do: turn-end latency against ground truth, half-open websockets, 75 Pipecat plugins checked nightly." />
         <link rel="shortcut icon" href="/icon.png" />
-        <link rel="canonical" href="https://rehansanjay.com" />
+        <link rel="canonical" href="https://rehansanjay-portfolio.vercel.app" />
       </Head>
       {showContent && (
         <>
