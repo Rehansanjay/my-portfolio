@@ -27,7 +27,7 @@ function Contact() {
 
   const socialLinks = [
     { name: "GitHub", icon: <FiGithub />, link: "https://github.com/Rehansanjay" },
-    { name: "LinkedIn", icon: <FiLinkedin />, link: "https://www.linkedin.com/in/rehansanjayvenkatesan/" },
+    { name: "LinkedIn", icon: <FiLinkedin />, link: "https://www.linkedin.com/in/rehansanjay-venkatesan-449925285/" },
     { name: "X (Twitter)", icon: <FiTwitter />, link: "https://x.com/RehanSanjay_" },
     { name: "Instagram", icon: <FiInstagram />, link: "https://instagram.com/rehansanjay_" },
   ];

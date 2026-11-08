@@ -155,21 +155,20 @@ function Projects() {
     },
     {
       image: "/ai.png",
-      projectName: "AI Image Automation",
+      projectName: "AI Image Generator",
       projectLink: "https://rehan-ai-portfolio.vercel.app",
       projectDescription:
-        "A robust AI image and video generation platform built to democratize visual content creation. It integrates state-of-the-art generative models via OpenAI's API into a seamless, responsive dashboard, allowing users to orchestrate complex generation pipelines in seconds.",
-      problem: "Generating high-quality custom visuals typically requires either expensive design talent or steep learning curves with complex AI tooling, creating a bottleneck for content creators and marketers.",
-      solution: "Engineered a full-stack React application with a clean, intuitive interface that abstracts away the complexity of prompt engineering and model parameters, delivering production-ready assets with real-time feedback.",
+        "A small front end for AI image generation, built as an early side project. You pick a style, such as photorealistic or 3D render, and an LLM rewrites your prompt for lighting and texture before the image model sees it.",
+      problem: "Getting a good image out of a generation model depends heavily on how the prompt is written, and most people don't know what to add.",
+      solution: "Put an LLM step in front of the image model that rewrites the prompt for the chosen style, so a short description still produces a usable result.",
       features: [
-        "Real-time generative AI pipeline with parallel processing",
-        "Customizable parameter controls for precise output tuning",
-        "Responsive, glassmorphic UI optimized for asset management",
-        "Seamless CI/CD deployment pipeline on Vercel"
+        "Style presets that change how the prompt is rewritten",
+        "An LLM prompt-rewrite step before generation",
+        "A history of past generations kept in the browser",
       ],
-      projectTech: ["React", "Node.js", "OpenAI API", "Vercel", "Tailwind CSS"],
-      metrics: ["Sub-2s latency on API calls", "99.9% uptime architecture"],
-      lessonsLearned: "Mastered managing asynchronous state across complex AI workflows, implementing optimistic UI updates, and building resilient error handling for third-party API rate limits.",
+      projectTech: ["Next.js", "React", "OpenAI API", "Tailwind CSS", "Vercel"],
+      metrics: [],
+      lessonsLearned: "Most of the quality came from the prompt-rewrite step rather than the image model, which was the first time I saw how much an LLM in front of another model can change the output.",
       projectExternalLinks: {
         github: "",
         externalLink: "https://rehan-ai-portfolio.vercel.app",

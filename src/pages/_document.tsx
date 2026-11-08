@@ -27,7 +27,7 @@ export default function Document() {
               "knowsAbout": ["Python", "asyncio", "Voice AI", "LiveKit", "Pipecat", "Twilio", "Deepgram", "TypeScript", "Next.js"],
               "sameAs": [
                 "https://github.com/Rehansanjay",
-                "https://www.linkedin.com/in/rehansanjayvenkatesan/",
+                "https://www.linkedin.com/in/rehansanjay-venkatesan-449925285/",
                 "https://x.com/RehanSanjay_"
               ]
             })
