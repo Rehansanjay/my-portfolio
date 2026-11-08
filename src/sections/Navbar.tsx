@@ -15,6 +15,7 @@ function Navbar() {
     { name: "About", link: "/#about" },
     { name: "Experience", link: "/#experience" },
     { name: "Work", link: "/#work" },
+    { name: "Measurements", link: "/measurements" },
     { name: "Contact", link: "/#contact" },
   ];
 
@@ -77,8 +78,10 @@ function Navbar() {
   }, [mobileMenuOpen]);
 
   const handleNavClick = useCallback((e: React.MouseEvent<HTMLAnchorElement>, link: string) => {
-    e.preventDefault();
     setMobileMenuOpen(false);
+    // Only in-page anchors scroll; a link to another page navigates normally.
+    if (!link.startsWith("/#")) return;
+    e.preventDefault();
     const id = link.replace("/#", "");
     const el = document.getElementById(id);
     if (el) {
