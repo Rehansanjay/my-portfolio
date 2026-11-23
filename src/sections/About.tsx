@@ -8,7 +8,7 @@ function About() {
     { name: "LiveKit Agents / Pipecat", category: "Voice AI", level: 85 },
     { name: "Twilio Voice & Media Streams", category: "Telephony", level: 85 },
     { name: "Deepgram STT / TTS", category: "Voice AI", level: 85 },
-    { name: "WebRTC / SIP", category: "Telephony", level: 75 },
+    { name: "WebRTC / SIP (learning)", category: "Telephony", level: 55 },
     { name: "TypeScript / NestJS", category: "Backend", level: 85 },
     { name: "React / Next.js", category: "Frontend", level: 85 },
     { name: "Postgres / Prisma / Redis", category: "Backend", level: 80 },
