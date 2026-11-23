@@ -84,15 +84,15 @@ const studies: Study[] = [
     question:
       "Does every community Pipecat plugin still install, import and construct against the latest release and against main?",
     rows: [
-      { label: "Plugins checked", value: "75, every night" },
-      { label: "Working", value: "56" },
-      { label: "Broken", value: "6" },
-      { label: "Need an older Pipecat", value: "8" },
-      { label: "Cannot be installed", value: "3" },
+      { label: "Plugins checked", value: "88, every night" },
+      { label: "Working", value: "69" },
+      { label: "Broken", value: "7" },
+      { label: "Need an older Pipecat", value: "6" },
+      { label: "Cannot be installed", value: "4" },
     ],
     finding:
       "It finds breakage before users do, and it builds each plugin from its own repository too, so a maintainer who fixed a plugin without cutting a release is not reported as broken.",
-    note: "Figures from the run on 8 November 2026. The repository has the live table.",
+    note: "Figures from the run on 23 November 2026, against Pipecat 1.17. The live status page has every integration: rehansanjay.github.io/pipecat-plugin-health",
   },
   {
     id: "call-record",
@@ -120,7 +120,7 @@ const method = [
 
 export default function Measurements() {
   const description =
-    "Published measurements of how voice agents behave: turn-end latency across 265 labelled calls, half-open websockets across 39 LiveKit plugins, a nightly health check of 75 Pipecat plugins, and a per-call record that catches replies generated but never spoken.";
+    "Published measurements of how voice agents behave: turn-end latency across 265 labelled calls, half-open websockets across 39 LiveKit plugins, a nightly health check of 88 Pipecat plugins, and a per-call record that catches replies generated but never spoken.";
 
   return (
     <div className="m">
